@@ -7,7 +7,7 @@ export default (type, params) => {
         const request = new Request('https://gcer-api.herokuapp.com/auth/sign_in', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
-            headers: new Headers({ 'Content-Type': 'application/json' }),
+            headers: new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }),
         })
         return fetch(request)
             .then(response => {
