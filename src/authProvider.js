@@ -4,7 +4,7 @@ export default (type, params) => {
     if (type === AUTH_LOGIN) {
         const { username, password } = params;
         var email = username;
-        const request = new Request('http://localhost:5000/auth/sign_in', {
+        const request = new Request('https://gcer-api.herokuapp.com/auth/sign_in', {
             method: 'POST',
             body: JSON.stringify({ email, password }),
             headers: new Headers({ 'Content-Type': 'application/json' }),
