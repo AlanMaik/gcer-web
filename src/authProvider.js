@@ -1,13 +1,13 @@
 import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_GET_PERMISSIONS, AUTH_CHECK } from 'react-admin';
-import decodeJwt from 'jwt-decode';
 
 export default (type, params) => {
     if (type === AUTH_LOGIN) {
         const { username, password } = params;
-        const request = new Request('https://gcer-api.herokuapp.com/auth/sign_in', {
+        var email = username;
+        const request = new Request('http://localhost:5000/auth/sign_in', {
             method: 'POST',
-            body: JSON.stringify({ username, password }),
-            headers: new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }),
+            body: JSON.stringify({ email, password }),
+            headers: new Headers({ 'Content-Type': 'application/json' }),
         })
         return fetch(request)
             .then(response => {
@@ -17,9 +17,7 @@ export default (type, params) => {
                 return response.json();
             })
             .then(({ token }) => {
-                const decodedToken = decodeJwt(token);
                 localStorage.setItem('token', token);
-                localStorage.setItem('role', decodedToken.role);
             });
     }
     if (type === AUTH_LOGOUT) {
