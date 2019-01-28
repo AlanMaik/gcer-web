@@ -2,9 +2,12 @@
   "name": "gcer-web",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "8.10.0",
+    "npm": "3.5.2"
+  },
   "dependencies": {
     "auth0-js": "^9.9.1",
-    "jwt-decode": "^2.2.0",
     "prop-types": "^15.6.2",
     "ra-data-json-server": "^2.6.2",
     "react": "^16.7.0",
