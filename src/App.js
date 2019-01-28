@@ -3,11 +3,14 @@ import { Admin, Resource, ListGuesser } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import Dashboard from './Dashboard';
 import authProvider from './authProvider';
+import dataProvider from './dataProvider';
+import NotFound from './NotFound';
+import { UserList } from './users';
 
-const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
+// const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
 const App = () => (
-  <Admin dashboard={Dashboard} authProvider={authProvider} dataProvider={dataProvider}>
-      <Resource name="users" list={ListGuesser} />
+  <Admin catchAll={NotFound} dashboard={Dashboard} authProvider={authProvider} dataProvider={dataProvider}>
+      <Resource name="users" list={UserList} />
   </Admin>
 );
 

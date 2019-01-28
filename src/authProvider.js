@@ -26,7 +26,12 @@ export default (type, params) => {
         return Promise.resolve();
     }
     if (type === AUTH_ERROR) {
-        // ...
+        const status  = params.message.status;
+        if (status === 401 || status === 403) {
+            localStorage.removeItem('token');
+            return Promise.reject();
+        }
+        return Promise.resolve();
     }
     if (type === AUTH_CHECK) {
         return localStorage.getItem('token') ? Promise.resolve() : Promise.reject();

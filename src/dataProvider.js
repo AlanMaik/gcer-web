@@ -10,7 +10,7 @@ import {
 } from 'react-admin';
 import { stringify } from 'query-string';
 
-const API_URL = 'my.api.url';
+const API_URL = 'http://localhost:5000';
 
 /**
  * @param {String} type One of the constants appearing at the top if this file, e.g. 'UPDATE'
@@ -21,14 +21,14 @@ const API_URL = 'my.api.url';
 const convertDataProviderRequestToHTTP = (type, resource, params) => {
     switch (type) {
     case GET_LIST: {
-        const { page, perPage } = params.pagination;
-        const { field, order } = params.sort;
-        const query = {
-            sort: JSON.stringify([field, order]),
-            range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
-            filter: JSON.stringify(params.filter),
-        };
-        return { url: `${API_URL}/${resource}?${stringify(query)}` };
+        // const { page, perPage } = params.pagination;
+        // const { field, order } = params.sort;
+        // const query = {
+        //     sort: JSON.stringify([field, order]),
+        //     range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
+        //     filter: JSON.stringify(params.filter),
+        // };
+        return { url: `${API_URL}/${resource}` };
     }
     case GET_ONE:
         return { url: `${API_URL}/${resource}/${params.id}` };
