@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/83f7b2ee01373d823d53/maintainability)](https://codeclimate.com/github/AlanMaik/gcer-web/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/83f7b2ee01373d823d53/test_coverage)](https://codeclimate.com/github/AlanMaik/gcer-web/test_coverage)
+[![CircleCI](https://circleci.com/gh/AlanMaik/gcer-web/tree/master.svg?style=svg)](https://circleci.com/gh/AlanMaik/gcer-web/tree/master)
+
 ## Available Scripts
 
 In the project directory, you can run:
