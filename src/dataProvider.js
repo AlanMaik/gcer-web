@@ -10,7 +10,7 @@ import {
 } from 'react-admin';
 import { stringify } from 'query-string';
 
-const API_URL = 'http://localhost:5000';
+const API_URL = 'http://localhost:3000';
 
 /**
  * @param {String} type One of the constants appearing at the top if this file, e.g. 'UPDATE'
