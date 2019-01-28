@@ -1,12 +1,13 @@
 import React from 'react';
-import { Card, CardText } from 'material-ui/Card';
-import { ViewTitle } from 'admin-on-rest/lib/mui';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
 
 export default () => (
     <Card>
-        <ViewTitle title="Não encontrada" />
-        <CardText>
+        <CardHeader title="Não encontrada" />
+        <CardContent>
             <h1>404: Pagina não encontrada</h1>
-        </CardText>
+        </CardContent>
     </Card>
 );
