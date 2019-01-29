@@ -29,21 +29,34 @@ jobs:
             ./cc-test-reporter before-build
             yarn test --ci --coverage --maxWorkers=2
             ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
-  deploy_production:
-    working_directory: ~/mern-starter
+deploy_staging:
     docker:
-      - image: circleci/node:8.9
+      - image: circleci/ruby:2.5.3
+    working_directory: ~/repo
     steps:
       - checkout
       - run:
-        command: |
-          echo "Deploy master"
-          yarn run build
-          ./node_modules/netlify-cli/bin/cli.js deploy \
-            --site-id ${NETLIFY_PROD_APP} \
-            -p build/ \
-            --access-token ${NETLIFY_TOKEN}
-
+          name: Install dependencies
+          command: |
+            gem install dpl
+      - run:
+          name: Deploy to staging
+          command: |
+            dpl --provider=heroku --app=gcer-web --api-key=$HEROKU_API_KEY
+  deploy_production:
+    docker:
+      - image: circleci/ruby:2.5.3
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            gem install dpl
+      - run:
+          name: Deploy to production
+          command: |
+            dpl --provider=heroku --app=gcer-web --api-key=$HEROKU_API_KEY
 workflows:
   version: 2
   test_and_deploy:
@@ -53,7 +66,15 @@ workflows:
           filters:
             tags:
               ignore: /.*/
-  
+      - deploy_staging:
+          context: org-global
+          filters:
+            branches:
+              only: master
+            tags:
+              ignore: /.*/
+          requires:
+            - test
       - deploy_production:
           context: org-global
           filters:
@@ -61,5 +82,3 @@ workflows:
               only: /v[0-9]+/
             branches:
               ignore: /.*/
-          requires:
-            - test
