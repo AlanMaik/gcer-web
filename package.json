@@ -13,6 +13,7 @@
     "serve": "^10.1.1"
   },
   "scripts": {
+    "lint": "eslint --ext js,jsx --max-warnings 0 .",
     "dev": "react-scripts start",
     "start": "serve -s build",
     "build": "react-scripts build",
