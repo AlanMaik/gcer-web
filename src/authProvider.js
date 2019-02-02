@@ -1,3 +1,4 @@
+/*eslint prefer-promise-reject-errors: ["error", {"allowEmptyReject": true}]*/
 import {
   AUTH_LOGIN,
   AUTH_LOGOUT,
@@ -29,7 +30,7 @@ export default (type, params) => {
   if (type === AUTH_LOGOUT) {
     localStorage.removeItem('token')
     localStorage.removeItem('role')
-    return Promise.resolve()
+    return Promise.resolve('logout')
   }
   if (type === AUTH_ERROR) {
     const status = params.message.status
@@ -37,14 +38,16 @@ export default (type, params) => {
       localStorage.removeItem('token')
       return Promise.reject()
     }
-    return Promise.resolve()
+    return Promise.resolve('permission denied')
   }
   if (type === AUTH_CHECK) {
-    return localStorage.getItem('token') ? Promise.resolve() : Promise.reject()
+    return localStorage.getItem('token')
+      ? Promise.resolve('permission denied')
+      : Promise.reject()
   }
   if (type === AUTH_GET_PERMISSIONS) {
     const role = localStorage.getItem('role')
     return role ? Promise.resolve(role) : Promise.reject()
   }
-  return Promise.reject('Unknown method')
+  return Promise.reject()
 }
