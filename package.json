@@ -30,5 +30,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-config-universe": "^1.0.7",
+    "prettier": "^1.16.3"
+  }
 }
