@@ -6,8 +6,6 @@ const httpClient = (url, options = {}) => {
     options.headers = new Headers({ Accept: 'application/json' })
   }
   // add your own headers here
-  options.headers.set('Content-Range', 'users 0-24/319')
-  options.headers.set('Access-Control-Expose-Headers', 'Content-Range')
   return fetchUtils.fetchJson(url, options)
 }
 

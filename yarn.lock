@@ -1422,6 +1422,11 @@ anymatch@^2.0.0:
     micromatch "^3.1.4"
     normalize-path "^2.1.1"
 
+aor-jsonapi-client@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/aor-jsonapi-client/-/aor-jsonapi-client-0.2.0.tgz#0aff3d43e3a88aa387412d70d983df11c9cbd20b"
+  integrity sha512-dpQBWd0vZfl5TzJXI180OeT1SamRkc1qsJ/4GG8ccug7MIA2Yo7yiqaPMd6mNdPXtZNUWjWyLrLvj6o9mowG0Q==
+
 append-transform@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/append-transform/-/append-transform-0.4.0.tgz#d76ebf8ca94d276e247a36bad44a4b74ab611991"

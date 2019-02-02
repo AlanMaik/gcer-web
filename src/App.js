@@ -6,7 +6,8 @@ import authProvider from './authProvider'
 import NotFound from './NotFound'
 import { UserList } from './users'
 import Login from './Login'
-import dataProvider from './dataProvider'
+import jsonServerProvider from 'ra-data-json-server';
+const dataProvider = jsonServerProvider(process.env.REACT_APP_API_URL);
 
 const App = () => (
   <Admin
