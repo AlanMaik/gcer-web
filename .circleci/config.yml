@@ -42,7 +42,7 @@ jobs:
       - run:
           name: Deploy to staging
           command: |
-            dpl --provider=heroku --app=gcer-web --api-key=$HEROKU_API_KEY
+            dpl --provider=heroku --app=gcer-web-staging --api-key=$HEROKU_API_KEY
   deploy_production:
     docker:
       - image: circleci/ruby:2.5.3
