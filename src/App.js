@@ -5,8 +5,11 @@ import jsonServerProvider from 'ra-data-json-server'
 import Dashboard from './Dashboard'
 import authProvider from './authProvider'
 import NotFound from './NotFound'
-import { UserList } from './users'
+import { UserList, PostCreate } from './users'
 import Login from './Login'
+
+
+
 const dataProvider = jsonServerProvider(process.env.REACT_APP_API_URL)
 
 const App = () => (
@@ -18,8 +21,11 @@ const App = () => (
     authProvider={authProvider}
     loginPage={Login}
   >
-    <Resource name="users" list={UserList} />
+    <Resource name="users" list={UserList} create={PostCreate} />
+            
   </Admin>
+
+  
 )
 
 export default App
