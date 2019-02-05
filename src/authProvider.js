@@ -11,11 +11,14 @@ export default (type, params) => {
   if (type === AUTH_LOGIN) {
     const { username, password } = params
     var email = username
-    const request = new Request('https://gcer-api.herokuapp.com/auth/sign_in', {
-      method: 'POST',
-      body: JSON.stringify({ email, password }),
-      headers: new Headers({ 'Content-Type': 'application/json' }),
-    })
+    const request = new Request(
+      process.env.REACT_APP_API_URL + '/auth/sign_in',
+      {
+        method: 'POST',
+        body: JSON.stringify({ email, password }),
+        headers: new Headers({ 'Content-Type': 'application/json' }),
+      },
+    )
     return fetch(request)
       .then(response => {
         if (response.status < 200 || response.status >= 300) {

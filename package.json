@@ -34,6 +34,7 @@
   ],
   "devDependencies": {
     "eslint-config-universe": "^1.0.7",
-    "prettier": "^1.16.3"
+    "prettier": "^1.16.3",
+    "ra-input-rich-text": "^2.6.4"
   }
 }
