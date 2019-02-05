@@ -23,7 +23,7 @@ const UserCreate = ({ classes, ...props }) => (
         source="name"
         label="Nome"
         formClassName={classes.inlineBlock}
-      />      
+      />
       <TextInput
         source="last_name"
         label="Sobrenome"
@@ -47,11 +47,7 @@ const UserCreate = ({ classes, ...props }) => (
         type="phone"
         formClassName={classes.inlineBlock}
       />
-      <TextInput 
-        source="cpf" 
-        label="CPF" 
-        formClassName={classes.inlineBlock} 
-      />
+      <TextInput source="cpf" label="CPF" formClassName={classes.inlineBlock} />
       <SelectInput
         label="Tipo"
         source="kind"
