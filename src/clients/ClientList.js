@@ -2,7 +2,7 @@ import React from 'react'
 import { List, Datagrid, TextField, EmailField } from 'react-admin'
 
 const ClientList = props => (
-  <List title="Usuários" {...props}>
+  <List title="Clientes" {...props}>
     <Datagrid rowClick="edit">
       <TextField source="id" />
       <TextField source="name" label="Nome" />

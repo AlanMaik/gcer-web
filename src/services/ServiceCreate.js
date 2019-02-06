@@ -22,6 +22,7 @@ const ServiceCreate = ({ classes, ...props }) => (
       <TextInput
         source="price_of_service"
         label="Valor"
+        type=""
         formClassName={classes.inlineBlock}
       />
       <SelectInput
