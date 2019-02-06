@@ -9,7 +9,7 @@ import users from './users'
 import Login from './Login'
 import clients from './clients'
 import services from './services'
-
+import especialties from './especialties'
 const dataProvider = jsonServerProvider(process.env.REACT_APP_API_URL)
 
 const App = () => (
@@ -24,6 +24,7 @@ const App = () => (
     <Resource name="users" {...users} />
     <Resource name="clients" {...clients} />
     <Resource name="services" {...services} />
+    <Resource name="especialties" {...especialties} />
   </Admin>
 )
 
