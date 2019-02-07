@@ -6,6 +6,8 @@ import {
   TabbedForm,
   DateInput,
   FormTab,
+  NumberInput,
+  RadioButtonGroupInput,
 } from 'react-admin'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -77,16 +79,22 @@ const ClientCreate = ({ classes, ...props }) => (
             { id: 'other', name: 'Outros' },
           ]}
         />
-        <SelectInput
+        <RadioButtonGroupInput
+          label="Filhos?"
+          source="children"
+          labelPosition="left"
+          formClassName={classes.inlineBlock}
+          choices={[{ id: 'yes', name: 'Sim' }, { id: 'no', name: 'Não' }]}
+        />
+        {/* <SelectInput
           label="Filhos?"
           source="children"
           formClassName={classes.inlineBlock}
           choices={[{ id: 'yes', name: 'Sim' }, { id: 'no', name: 'Não' }]}
-        />
-        <TextInput
+        /> */}
+        <NumberInput
           source="number_children"
           label="Quantos Filhos?"
-          type="number"
           formClassName={classes.inlineBlock}
         />
       </FormTab>
