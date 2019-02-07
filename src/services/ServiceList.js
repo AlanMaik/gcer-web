@@ -1,15 +1,34 @@
 import React from 'react'
-import { List, Datagrid, TextField, EmailField } from 'react-admin'
+import {
+  List,
+  Datagrid,
+  TextField,
+  Responsive,
+  SimpleList,
+  EditButton,
+} from 'react-admin'
 
 const ServiceList = props => (
   <List title="Serviços" {...props}>
-    <Datagrid rowClick="edit">
-      <TextField source="id" />
-      <TextField source="service" label="Serviço" />
-      <TextField source="type_service" label="Tipo de Serviço" />
-      <EmailField source="price" label="Valor" />
-      <TextField source="duraction" label="Duração" />
-    </Datagrid>
+    <Responsive
+      small={
+        <SimpleList
+          primaryText={record => record.service}
+          secondaryText={record => record.type_service}
+          tertiaryText={record => record.price}
+        />
+      }
+      medium={
+        <Datagrid rowClick="edit">
+          <TextField source="id" />
+          <TextField source="service" label="Serviço" />
+          <TextField source="type_service" label="Tipo de Serviço" />
+          <TextField source="price" label="Valor" />
+          <TextField source="duraction" label="Duração" />
+          <EditButton />
+        </Datagrid>
+      }
+    />
   </List>
 )
 

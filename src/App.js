@@ -1,7 +1,9 @@
 import React from 'react'
-import { Admin, Resource } from 'react-admin'
+import { Admin, Resource, resolveBrowserLocale } from 'react-admin'
 import './App.css'
 import jsonServerProvider from 'ra-data-json-server'
+import portugueseMessages from 'ra-language-portuguese'
+import englishMessages from 'ra-language-english'
 import Dashboard from './Dashboard'
 import authProvider from './authProvider'
 import NotFound from './NotFound'
@@ -10,10 +12,20 @@ import Login from './Login'
 import clients from './clients'
 import services from './services'
 import especialties from './especialties'
+
+const messages = {
+  pt: portugueseMessages,
+  en: englishMessages,
+}
+
+const i18nProvider = locale => messages[locale]
+
 const dataProvider = jsonServerProvider(process.env.REACT_APP_API_URL)
 
 const App = () => (
   <Admin
+    locale={resolveBrowserLocale()}
+    i18nProvider={i18nProvider}
     title="GCER"
     dataProvider={dataProvider}
     catchAll={NotFound}
@@ -21,10 +33,14 @@ const App = () => (
     authProvider={authProvider}
     loginPage={Login}
   >
-    <Resource name="users" {...users} />
-    <Resource name="clients" {...clients} />
-    <Resource name="services" {...services} />
-    <Resource name="especialties" {...especialties} />
+    <Resource name="users" {...users} options={{ label: 'Usuários' }} />
+    <Resource name="clients" {...clients} options={{ label: 'Clientes' }} />
+    <Resource name="services" {...services} options={{ label: 'Serviços' }} />
+    <Resource
+      name="especialties"
+      {...especialties}
+      options={{ label: 'Especialidades' }}
+    />
   </Admin>
 )
 
