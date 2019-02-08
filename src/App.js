@@ -4,6 +4,10 @@ import './App.css'
 import jsonServerProvider from 'ra-data-json-server'
 import portugueseMessages from 'ra-language-portuguese'
 import englishMessages from 'ra-language-english'
+import UserIcon from '@material-ui/icons/People'
+import PostIcon from '@material-ui/icons/Book'
+import ClientsIcon from '@material-ui/icons/TagFaces'
+import ServicesIcon from '@material-ui/icons/Layers'
 import Dashboard from './Dashboard'
 import authProvider from './authProvider'
 import NotFound from './NotFound'
@@ -33,13 +37,29 @@ const App = () => (
     authProvider={authProvider}
     loginPage={Login}
   >
-    <Resource name="users" {...users} options={{ label: 'Usuários' }} />
-    <Resource name="clients" {...clients} options={{ label: 'Clientes' }} />
-    <Resource name="services" {...services} options={{ label: 'Serviços' }} />
+    <Resource
+      name="users"
+      {...users}
+      options={{ label: 'Usuários' }}
+      icon={UserIcon}
+    />
+    <Resource
+      name="clients"
+      {...clients}
+      options={{ label: 'Clientes' }}
+      icon={ClientsIcon}
+    />
+    <Resource
+      name="services"
+      {...services}
+      options={{ label: 'Serviços' }}
+      icon={ServicesIcon}
+    />
     <Resource
       name="specialties"
       {...specialties}
       options={{ label: 'Especialidades' }}
+      icon={PostIcon}
     />
   </Admin>
 )

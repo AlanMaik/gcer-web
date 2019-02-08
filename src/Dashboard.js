@@ -5,7 +5,7 @@ import CardHeader from '@material-ui/core/CardHeader'
 
 export default () => (
   <Card>
-    <CardHeader title="Bem vindo!s!" />
-    <CardContent>Teste</CardContent>
+    <CardHeader title="Bem vindo!" />
+    <CardContent>username</CardContent>
   </Card>
 )
