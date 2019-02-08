@@ -11,7 +11,7 @@ import users from './users'
 import Login from './Login'
 import clients from './clients'
 import services from './services'
-import especialties from './especialties'
+import specialties from './specialties'
 
 const messages = {
   pt: portugueseMessages,
@@ -37,8 +37,8 @@ const App = () => (
     <Resource name="clients" {...clients} options={{ label: 'Clientes' }} />
     <Resource name="services" {...services} options={{ label: 'Serviços' }} />
     <Resource
-      name="especialties"
-      {...especialties}
+      name="specialties"
+      {...specialties}
       options={{ label: 'Especialidades' }}
     />
   </Admin>

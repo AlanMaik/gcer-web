@@ -10,16 +10,16 @@ export const styles = {
   },
 }
 
-const EspecialtyCreate = ({ classes, ...props }) => (
+const SpecialtyCreate = ({ classes, ...props }) => (
   <Create title="Cadastrar Especialidade" {...props}>
     <SimpleForm>
       <TextInput
-        source="Especialty"
+        source="specialty"
         label="Especialidade"
         formClassName={classes.inlineBlock}
       />
       <TextInput
-        source="description_Especialty"
+        source="specialty_description"
         label="Descrição"
         formClassName={classes.inlineBlock}
       />
@@ -27,4 +27,4 @@ const EspecialtyCreate = ({ classes, ...props }) => (
   </Create>
 )
 
-export default withStyles(styles)(EspecialtyCreate)
+export default withStyles(styles)(SpecialtyCreate)

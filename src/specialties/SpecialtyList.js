@@ -8,20 +8,20 @@ import {
   EditButton,
 } from 'react-admin'
 
-const EspecialtyList = props => (
+const SpecialtyList = props => (
   <List title="Especialidades" {...props}>
     <Responsive
       small={
         <SimpleList
-          primaryText={record => record.especialty}
-          secondaryText={record => record.description_especialty}
+          primaryText={record => record.specialty}
+          secondaryText={record => record.specialty_description}
         />
       }
       medium={
         <Datagrid rowClick="edit">
           <TextField source="id" />
-          <TextField source="especialty" label="Especialidade" />
-          <TextField source="description_especialty" label="Descrição" />
+          <TextField source="specialty" label="Especialidade" />
+          <TextField source="specialty_description" label="Descrição" />
           <EditButton />
         </Datagrid>
       }
@@ -29,4 +29,4 @@ const EspecialtyList = props => (
   </List>
 )
 
-export default EspecialtyList
+export default SpecialtyList
