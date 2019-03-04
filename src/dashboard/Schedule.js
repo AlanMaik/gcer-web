@@ -1,10 +1,9 @@
 import React from 'react'
 import compose from 'recompose/compose'
 import Card from '@material-ui/core/Card'
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
+import ScheduleIcon from '@material-ui/icons/Schedule'
 import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-import { translate } from 'react-admin'
 
 import CardIcon from './CardIcon'
 
@@ -22,12 +21,12 @@ const styles = {
   },
 }
 
-const NbNewOrders = ({ value, translate, classes }) => (
+const Schedule = ({ value, classes }) => (
   <div className={classes.main}>
-    <CardIcon Icon={ShoppingCartIcon} bgColor="#ff9800" />
+    <CardIcon Icon={ScheduleIcon} bgColor="#ff9800" />
     <Card className={classes.card}>
       <Typography className={classes.title} color="textSecondary">
-        {translate('pos.dashboard.new_orders')}
+        {'Agendas'}
       </Typography>
       <Typography variant="headline" component="h2">
         {value}
@@ -36,9 +35,6 @@ const NbNewOrders = ({ value, translate, classes }) => (
   </div>
 )
 
-const enhance = compose(
-  withStyles(styles),
-  translate,
-)
+const enhance = compose(withStyles(styles))
 
-export default enhance(NbNewOrders)
+export default enhance(Schedule)

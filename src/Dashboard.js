@@ -4,7 +4,8 @@ import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import CardHeader from '@material-ui/core/CardHeader'
 
-import NbNewOrders from './dashboard/NbNewOrders'
+import Cashier from './dashboard/Cashier'
+import Schedule from './dashboard/Schedule'
 
 const styles = {
   flex: { display: 'flex' },
@@ -25,9 +26,8 @@ export default () => (
         small={
           <div style={styles.flexColumn}>
             <div style={styles.flex}>
-              <NbNewOrders />
-              <NbNewOrders />
-              <NbNewOrders />
+              <Cashier />
+              <Schedule />
             </div>
           </div>
         }
@@ -35,9 +35,8 @@ export default () => (
           <div style={styles.flex}>
             <div style={styles.leftCol}>
               <div style={styles.flex}>
-                <NbNewOrders />
-                <NbNewOrders />
-                <NbNewOrders />
+                <Cashier value={'R$ 100,00'} />
+                <Schedule />
               </div>
             </div>
           </div>
