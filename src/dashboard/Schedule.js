@@ -35,8 +35,6 @@ const Schedule = ({ value, classes }) => (
   </div>
 )
 
-const enhance = compose(
-  withStyles(styles),
-)
+const enhance = compose(withStyles(styles))
 
 export default enhance(Schedule)
