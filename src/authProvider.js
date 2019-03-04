@@ -24,6 +24,15 @@ export default (type, params) => {
         if (response.status < 200 || response.status >= 300) {
           throw new Error(response.statusText)
         }
+
+        localStorage.setItem(
+          'accesstoken',
+          response.headers.get('access-token'),
+        )
+        localStorage.setItem('client', response.headers.get('client'))
+        localStorage.setItem('expiry', response.headers.get('expiry'))
+        localStorage.setItem('tokentype', response.headers.get('token-type'))
+        localStorage.setItem('uid', response.headers.get('uid'))
         return response.json()
       })
       .then(({ token }) => {
