@@ -8,6 +8,7 @@ import UserIcon from '@material-ui/icons/People'
 import PostIcon from '@material-ui/icons/Book'
 import ClientsIcon from '@material-ui/icons/TagFaces'
 import ServicesIcon from '@material-ui/icons/Layers'
+import Event from '@material-ui/icons/Event'
 import Dashboard from './Dashboard'
 import authProvider from './authProvider'
 import NotFound from './NotFound'
@@ -16,6 +17,7 @@ import Login from './Login'
 import clients from './clients'
 import services from './services'
 import specialties from './specialties'
+import shedule from './shedule'
 
 const messages = {
   pt: portugueseMessages,
@@ -76,6 +78,12 @@ const App = () => (
       {...specialties}
       options={{ label: 'Especialidades' }}
       icon={PostIcon}
+    />
+    <Resource
+      name="shedule"
+      {...shedule}
+      options={{ label: 'Agendamentos' }}
+      icon={Event}
     />
   </Admin>
 )
