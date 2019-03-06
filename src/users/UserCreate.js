@@ -3,18 +3,16 @@ import {
   TextInput,
   Create,
   SimpleForm,
-  AutocompleteArrayInput,
+  ReferenceInput,
   SelectInput,
+  AutocompleteArrayInput,
 } from 'react-admin'
 import { withStyles } from '@material-ui/core/styles'
+
 
 export const styles = {
   inlineBlock: { display: 'inline-flex', marginRight: '1rem' },
 }
-export const choices = [
-  { id: 'massagista', name: 'Massagista' },
-  { id: 'podologa', name: 'Podologa' },
-]
 
 const UserCreate = ({ classes, ...props }) => (
   <Create title="Cadastrar Usuário" {...props}>
@@ -58,12 +56,14 @@ const UserCreate = ({ classes, ...props }) => (
           { id: 'profissional', name: 'Profissional' },
         ]}
       />
-      <AutocompleteArrayInput
-        source="specialty"
+      <ReferenceInput
         label="Especialidade"
-        choices={choices}
+        source="id"
+        reference="specialties"
         formClassName={classes.inlineBlock}
-      />
+      >
+        <AutocompleteArrayInput optionText="specialty" />
+      </ReferenceInput>
     </SimpleForm>
   </Create>
 )
