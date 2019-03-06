@@ -1,4 +1,4 @@
-import { fetchUtils} from 'react-admin'
+import { fetchUtils } from 'react-admin'
 
 const httpClient = (url, options = {}) => {
   if (!options.headers) {

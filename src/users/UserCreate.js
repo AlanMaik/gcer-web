@@ -9,7 +9,6 @@ import {
 } from 'react-admin'
 import { withStyles } from '@material-ui/core/styles'
 
-
 export const styles = {
   inlineBlock: { display: 'inline-flex', marginRight: '1rem' },
 }
