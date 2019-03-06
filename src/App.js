@@ -1,5 +1,5 @@
 import React from 'react'
-import { fetchUtils, Admin, Resource, resolveBrowserLocale } from 'react-admin'
+import { Admin, Resource, resolveBrowserLocale } from 'react-admin'
 import './App.css'
 import jsonServerProvider from 'ra-data-json-server'
 import portugueseMessages from 'ra-language-portuguese'
@@ -10,10 +10,11 @@ import ClientsIcon from '@material-ui/icons/TagFaces'
 import ServicesIcon from '@material-ui/icons/Layers'
 import Event from '@material-ui/icons/Event'
 import Dashboard from './Dashboard'
-import authProvider from './authProvider'
+import authProvider from './auth/authProvider'
+import httpClient from './auth/httpclient'
 import NotFound from './NotFound'
 import users from './users'
-import Login from './Login'
+import SingIn from './auth/SingIn'
 import clients from './clients'
 import services from './services'
 import specialties from './specialties'
@@ -25,19 +26,6 @@ const messages = {
 }
 
 const i18nProvider = locale => messages[locale]
-
-const httpClient = (url, options = {}) => {
-  if (!options.headers) {
-    options.headers = new Headers({ Accept: 'application/json' })
-  }
-
-  options.headers.set('Access-Token', localStorage.getItem('accesstoken'))
-  options.headers.set('Expiry', localStorage.getItem('expiry'))
-  options.headers.set('Token-Type', localStorage.getItem('tokentype'))
-  options.headers.set('Uid', localStorage.getItem('uid'))
-  options.headers.set('Client', localStorage.getItem('client'))
-  return fetchUtils.fetchJson(url, options)
-}
 
 const dataProvider = jsonServerProvider(
   process.env.REACT_APP_API_URL,
@@ -53,7 +41,7 @@ const App = () => (
     catchAll={NotFound}
     dashboard={Dashboard}
     authProvider={authProvider}
-    loginPage={Login}
+    loginPage={SingIn}
   >
     <Resource
       name="users"
