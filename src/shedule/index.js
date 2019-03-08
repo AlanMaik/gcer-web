@@ -5,5 +5,4 @@ export default {
   create: SheduleCreate,
   list: SheduleList,
   edit: SheduleEdit,
-
 }
