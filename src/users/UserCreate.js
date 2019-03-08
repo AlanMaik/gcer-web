@@ -57,7 +57,7 @@ const UserCreate = ({ classes, ...props }) => (
       />
       <ReferenceInput
         label="Especialidade"
-        source="id"
+        source="specialties"
         reference="specialties"
         formClassName={classes.inlineBlock}
       >

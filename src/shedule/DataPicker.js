@@ -17,8 +17,6 @@ class LocalizedUtils extends DateFnsUtils {
     }
   }
 
-
-
 class DataPicker extends React.Component {
   state = {
     // The first commit of Material-UI
