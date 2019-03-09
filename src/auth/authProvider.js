@@ -19,43 +19,42 @@ export default (type, params) => {
         headers: new Headers({ 'Content-Type': 'application/json' }),
       },
     )
-    return fetch(request)
-      .then(response => {
-        if (response.status < 200 || response.status >= 300) {
-          throw new Error(response.statusText)
-        }
-
-        localStorage.setItem(
-          'accesstoken',
-          response.headers.get('access-token'),
-        )
-        localStorage.setItem('client', response.headers.get('client'))
-        localStorage.setItem('expiry', response.headers.get('expiry'))
-        localStorage.setItem('tokentype', response.headers.get('token-type'))
-        localStorage.setItem('uid', response.headers.get('uid'))
-        return response.json()
-      })
-      .then(({ token }) => {
-        localStorage.setItem('token', token)
-      })
+    return fetch(request).then(response => {
+      if (response.status < 200 || response.status >= 300) {
+        throw new Error(response.statusText)
+      }
+      localStorage.setItem('accesstoken', response.headers.get('access-token'))
+      localStorage.setItem('client', response.headers.get('client'))
+      localStorage.setItem('expiry', response.headers.get('expiry'))
+      localStorage.setItem('tokentype', response.headers.get('token-type'))
+      localStorage.setItem('uid', response.headers.get('uid'))
+      return response.json()
+    })
   }
   if (type === AUTH_LOGOUT) {
-    localStorage.removeItem('token')
+    localStorage.removeItem('accesstoken')
+    localStorage.removeItem('client')
+    localStorage.removeItem('expiry')
+    localStorage.removeItem('tokentype')
+    localStorage.removeItem('uid')
     localStorage.removeItem('role')
     return Promise.resolve('logout')
   }
   if (type === AUTH_ERROR) {
     const status = params.message.status
     if (status === 401 || status === 403) {
-      localStorage.removeItem('token')
+      localStorage.removeItem('accesstoken')
+      localStorage.removeItem('client')
+      localStorage.removeItem('expiry')
+      localStorage.removeItem('tokentype')
+      localStorage.removeItem('uid')
       return Promise.reject()
     }
     return Promise.resolve('permission denied')
   }
   if (type === AUTH_CHECK) {
-    return localStorage.getItem('token')
-      ? Promise.resolve('permission denied')
-      : Promise.reject()
+    const storage = { ...localStorage }
+    return storage ? Promise.resolve() : Promise.reject()
   }
   if (type === AUTH_GET_PERMISSIONS) {
     const role = localStorage.getItem('role')
