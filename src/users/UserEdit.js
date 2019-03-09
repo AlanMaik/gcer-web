@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   TextInput,
-  Create,
+  Edit,
   SimpleForm,
   ReferenceInput,
   SelectInput,
@@ -13,8 +13,8 @@ export const styles = {
   inlineBlock: { display: 'inline-flex', marginRight: '1rem' },
 }
 
-const UserCreate = ({ classes, ...props }) => (
-  <Create title="Cadastrar Usuário" {...props}>
+const UserEdit = ({ classes, ...props }) => (
+  <Edit title="Cadastrar Usuário" {...props}>
     <SimpleForm>
       <TextInput
         source="name"
@@ -64,7 +64,7 @@ const UserCreate = ({ classes, ...props }) => (
         <AutocompleteArrayInput optionText="specialty" />
       </ReferenceInput>
     </SimpleForm>
-  </Create>
+  </Edit>
 )
 
-export default withStyles(styles)(UserCreate)
+export default withStyles(styles)(UserEdit)

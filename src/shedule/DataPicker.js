@@ -28,8 +28,7 @@ class DataPicker extends React.Component {
   }
 
   render() {
-    const { classes } = this.props
-    const { selectedDate, locale } = this.state
+    const { selectedDate } = this.state
 
     return (
       <MuiPickersUtilsProvider
