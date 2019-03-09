@@ -3,7 +3,6 @@ import {
   List,
   Datagrid,
   TextField,
-  EmailField,
   EditButton,
   Responsive,
   SimpleList,

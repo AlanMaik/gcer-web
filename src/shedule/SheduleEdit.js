@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextInput, Create, SelectInput, SimpleForm } from 'react-admin'
+import { TextInput, Edit, SelectInput, SimpleForm } from 'react-admin'
 
 import { withStyles } from '@material-ui/core/styles'
 import DataPicker from './DataPicker'
@@ -8,8 +8,8 @@ export const styles = {
   inlineBlock: { display: 'inline-flex', marginRight: '1rem' },
 }
 
-const SheduleCreate = ({ classes, ...props }) => (
-  <Create title="Agendamento" {...props}>
+const SheduleEdit = ({ classes, ...props }) => (
+  <Edit title="Agendamento" {...props}>
     <SimpleForm>
       <TextInput
         source="name"
@@ -49,7 +49,7 @@ const SheduleCreate = ({ classes, ...props }) => (
         formClassName={classes.inlineBlock}
       />
     </SimpleForm>
-  </Create>
+  </Edit>
 )
 
-export default withStyles(styles)(SheduleCreate)
+export default withStyles(styles)(SheduleEdit)
