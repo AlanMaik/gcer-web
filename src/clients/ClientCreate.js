@@ -16,7 +16,6 @@ import TextInputZipCode from '../masks/TextInputZipCode'
 
 export const styles = {
   inlineBlock: { display: 'inline-flex', marginRight: '1rem' },
-
 }
 
 const ClientCreate = ({ classes, ...props }) => (
@@ -93,14 +92,8 @@ const ClientCreate = ({ classes, ...props }) => (
         <RadioButtonGroupInput
           label="Filhos?"
           source="children"
-          choices={
-            [
-              { id: 'yes', name: 'Sim' },
-              { id: 'no', name: 'Não' }
-            ]
-          }
+          choices={[{ id: 'yes', name: 'Sim' }, { id: 'no', name: 'Não' }]}
           formClassName={classes.inlineBlock}
-
         />
 
         <NumberInput

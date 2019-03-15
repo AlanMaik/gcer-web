@@ -9,11 +9,10 @@ import {
 } from 'react-admin'
 import { withStyles } from '@material-ui/core/styles'
 import TextInputPhone from '../masks/TextInputPhone'
-import  TextInputCPF  from '../masks/TextInputCPF'
+import TextInputCPF from '../masks/TextInputCPF'
 
 export const styles = {
   inlineBlock: { display: 'inline-flex', marginRight: '1rem' },
-  
 }
 
 const UserCreate = ({ classes, ...props }) => (
@@ -46,13 +45,17 @@ const UserCreate = ({ classes, ...props }) => (
         formClassName={classes.inlineBlock}
       />
       <TextInputPhone
-      required
-      source="phone"
-      label="Celular"
-      formClassName={classes.inlineBlock}
+        required
+        source="phone"
+        label="Celular"
+        formClassName={classes.inlineBlock}
       />
       <TextInputCPF
-        required source="cpf" label="CPF" formClassName={classes.inlineBlock} />
+        required
+        source="cpf"
+        label="CPF"
+        formClassName={classes.inlineBlock}
+      />
       <SelectInput
         label="Tipo"
         source="kind"

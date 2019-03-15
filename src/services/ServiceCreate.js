@@ -16,7 +16,6 @@ const ServiceCreate = ({ classes, ...props }) => (
         formClassName={classes.inlineBlock}
       />
       <TextInput
-
         source="type_service"
         label="Tipo de Serviço"
         formClassName={classes.inlineBlock}

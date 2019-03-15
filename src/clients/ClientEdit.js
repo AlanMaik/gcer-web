@@ -20,7 +20,7 @@ export const styles = {
 
 const ClientEdit = ({ classes, ...props }) => (
   <Edit title="Cadastrar Cliente" {...props}>
-     <TabbedForm>
+    <TabbedForm>
       <FormTab label="Dados Principais">
         <TextInput
           required
@@ -92,14 +92,8 @@ const ClientEdit = ({ classes, ...props }) => (
         <RadioButtonGroupInput
           label="Filhos?"
           source="children"
-          choices={
-            [
-              { id: 'yes', name: 'Sim' },
-              { id: 'no', name: 'Não' }
-            ]
-          }
+          choices={[{ id: 'yes', name: 'Sim' }, { id: 'no', name: 'Não' }]}
           formClassName={classes.inlineBlock}
-
         />
 
         <NumberInput

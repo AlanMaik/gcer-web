@@ -9,7 +9,7 @@ import {
 } from 'react-admin'
 import { withStyles } from '@material-ui/core/styles'
 import TextInputPhone from '../masks/TextInputPhone'
-import  TextInputCPF  from '../masks/TextInputCPF'
+import TextInputCPF from '../masks/TextInputCPF'
 
 export const styles = {
   inlineBlock: { display: 'inline-flex', marginRight: '1rem' },
@@ -18,7 +18,7 @@ export const styles = {
 const UserEdit = ({ classes, ...props }) => (
   <Edit title="Cadastrar Usuário" {...props}>
     <SimpleForm>
-    <TextInput
+      <TextInput
         required
         source="name"
         label="Nome"
@@ -45,13 +45,17 @@ const UserEdit = ({ classes, ...props }) => (
         formClassName={classes.inlineBlock}
       />
       <TextInputPhone
-      required
-      source="phone"
-      label="Celular"
-      formClassName={classes.inlineBlock}
+        required
+        source="phone"
+        label="Celular"
+        formClassName={classes.inlineBlock}
       />
       <TextInputCPF
-        required source="cpf" label="CPF" formClassName={classes.inlineBlock} />
+        required
+        source="cpf"
+        label="CPF"
+        formClassName={classes.inlineBlock}
+      />
       <SelectInput
         label="Tipo"
         source="kind"
