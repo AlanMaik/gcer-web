@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextInput, Edit, SimpleForm } from 'react-admin'
+import { TextInput, LongTextInput, Edit, SimpleForm } from 'react-admin'
 
 import { withStyles } from '@material-ui/core/styles'
 
@@ -14,11 +14,12 @@ const SpecialtyEdit = ({ classes, ...props }) => (
   <Edit title="Cadastrar Especialidade" {...props}>
     <SimpleForm>
       <TextInput
+        required
         source="specialty"
         label="Especialidade"
         formClassName={classes.inlineBlock}
       />
-      <TextInput
+      <LongTextInput
         source="specialty_description"
         label="Descrição"
         formClassName={classes.inlineBlock}

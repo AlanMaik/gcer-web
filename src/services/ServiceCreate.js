@@ -10,16 +10,19 @@ const ServiceCreate = ({ classes, ...props }) => (
   <Create title="Cadastrar Servicee" {...props}>
     <SimpleForm>
       <TextInput
+        required
         source="service"
         label="Serviço"
         formClassName={classes.inlineBlock}
       />
       <TextInput
+
         source="type_service"
         label="Tipo de Serviço"
         formClassName={classes.inlineBlock}
       />
       <TextInput
+        required
         source="price_of_service"
         label="Valor"
         type=""
