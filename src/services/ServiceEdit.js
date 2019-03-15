@@ -10,6 +10,7 @@ const ServiceEdit = ({ classes, ...props }) => (
   <Edit title="Cadastrar Servicee" {...props}>
     <SimpleForm>
       <TextInput
+        required
         source="service"
         label="Serviço"
         formClassName={classes.inlineBlock}
@@ -20,6 +21,7 @@ const ServiceEdit = ({ classes, ...props }) => (
         formClassName={classes.inlineBlock}
       />
       <TextInput
+        required
         source="price_of_service"
         label="Valor"
         type=""

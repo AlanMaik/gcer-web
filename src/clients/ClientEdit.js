@@ -10,6 +10,9 @@ import {
   RadioButtonGroupInput,
 } from 'react-admin'
 import { withStyles } from '@material-ui/core/styles'
+import TextInputPhone from '../masks/TextInputPhone'
+import TextInputCPF from '../masks/TextInputCPF'
+import TextInputZipCode from '../masks/TextInputZipCode'
 
 export const styles = {
   inlineBlock: { display: 'inline-flex', marginRight: '1rem' },
@@ -20,28 +23,33 @@ const ClientEdit = ({ classes, ...props }) => (
     <TabbedForm>
       <FormTab label="Dados Principais">
         <TextInput
+          required
           source="name"
           label="Nome"
           formClassName={classes.inlineBlock}
         />
         <TextInput
+          required
           source="last_name"
           label="Sobrenome"
           formClassName={classes.inlineBlock}
         />
         <TextInput
+          required
           source="email"
           label="E-mail"
           type="email"
           formClassName={classes.inlineBlock}
         />
-        <TextInput
+        <TextInputPhone
+          required
           source="phone"
           label="Telefone"
           type="phone"
           formClassName={classes.inlineBlock}
         />
-        <TextInput
+        <TextInputCPF
+          required
           source="cpf"
           label="CPF"
           formClassName={classes.inlineBlock}
@@ -55,6 +63,7 @@ const ClientEdit = ({ classes, ...props }) => (
           formClassName={classes.inlineBlock}
         />
         <SelectInput
+          required
           label="Sexo"
           source="sex"
           formClassName={classes.inlineBlock}
@@ -79,19 +88,14 @@ const ClientEdit = ({ classes, ...props }) => (
             { id: 'other', name: 'Outros' },
           ]}
         />
+
         <RadioButtonGroupInput
           label="Filhos?"
           source="children"
-          labelPosition="left"
-          formClassName={classes.inlineBlock}
           choices={[{ id: 'yes', name: 'Sim' }, { id: 'no', name: 'Não' }]}
+          formClassName={classes.inlineBlock}
         />
-        {/* <SelectInput
-          label="Filhos?"
-          source="children"
-          formClassName={classes.inlineBlock}
-          choices={[{ id: 'yes', name: 'Sim' }, { id: 'no', name: 'Não' }]}
-        /> */}
+
         <NumberInput
           source="number_children"
           label="Quantos Filhos?"
@@ -100,7 +104,7 @@ const ClientEdit = ({ classes, ...props }) => (
       </FormTab>
 
       <FormTab label="Endereço">
-        <TextInput
+        <TextInputZipCode
           source="zip_code"
           label="CEP"
           formClassName={classes.inlineBlock}
@@ -139,11 +143,13 @@ const ClientEdit = ({ classes, ...props }) => (
 
       <FormTab label="Em caso de Emergência">
         <TextInput
+          required
           source="name_emergency"
           label="Nome"
           formClassName={classes.inlineBlock}
         />
-        <TextInput
+        <TextInputPhone
+          required
           source="phone_emergency"
           label="Telefone de emergência"
           formClassName={classes.inlineBlock}
@@ -153,7 +159,7 @@ const ClientEdit = ({ classes, ...props }) => (
           label="Médico"
           formClassName={classes.inlineBlock}
         />
-        <TextInput
+        <TextInputPhone
           source="phone_doctor"
           label="Telefone do médico"
           formClassName={classes.inlineBlock}
