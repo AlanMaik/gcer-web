@@ -38,7 +38,10 @@ class DataPicker extends React.Component {
         <Grid>
           <div className="picker">
             <InlineDateTimePicker
+              required
               keyboard
+              source="date_shedule"
+              label="Data"
               ampm={false}
               value={selectedDate}
               onChange={this.handleDateChange}
