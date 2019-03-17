@@ -31,12 +31,7 @@ const SheduleEdit = ({ classes, ...props }) => (
         type="phone"
         formClassName={classes.inlineBlock}
       />
-      <DataPicker
-        required
-        source="date_shedule"
-        label="Data"
-        formClassName={classes.inlineBlock}
-      />
+      <DataPicker formClassName={classes.inlineBlock} />
       <SelectInput
         required
         label="Serviço"
