@@ -1,6 +1,7 @@
 import React from 'react'
 import { TextInput, Create, SimpleForm, SelectInput } from 'react-admin'
 import { withStyles } from '@material-ui/core/styles'
+import TextInputPrice from '../masks/TextInputPrice'
 
 export const styles = {
   inlineBlock: { display: 'inline-flex', marginRight: '1rem' },
@@ -16,15 +17,16 @@ const ServiceCreate = ({ classes, ...props }) => (
         formClassName={classes.inlineBlock}
       />
       <TextInput
+        value="50"
         source="type_service"
         label="Tipo de Serviço"
         formClassName={classes.inlineBlock}
       />
-      <TextInput
+      <TextInputPrice
         required
+        value="50"
         source="price_of_service"
         label="Valor"
-        type=""
         formClassName={classes.inlineBlock}
       />
       <SelectInput
