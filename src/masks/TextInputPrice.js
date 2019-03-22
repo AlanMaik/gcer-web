@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { addField, FieldTitle } from 'ra-core'
 
-import CurrencyInput from 'react-currency-input';
+import CurrencyInput from 'react-currency-input'
 import ResettableTextField from './ResettableTextField'
 import sanitizeRestProps from './sanitizeRestProps'
 
@@ -16,7 +16,7 @@ const TextMaskPrice = props => {
       decimalSeparator=","
       thousandSeparator="."
       prefix="R$ "
-    //value= {value}
+      //value= {value}
     />
   )
 }
@@ -26,7 +26,6 @@ TextMaskPrice.propTypes = {
 }
 
 export class TextInputPrice extends Component {
-
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
@@ -65,20 +64,19 @@ export class TextInputPrice extends Component {
 
     return (
       <ResettableTextField
-
         margin="normal"
         type={type}
         label={
           label === false ? (
             label
           ) : (
-              <FieldTitle
-                label={label}
-                source={source}
-                resource={resource}
-                isRequired={isRequired}
-              />
-            )
+            <FieldTitle
+              label={label}
+              source={source}
+              resource={resource}
+              isRequired={isRequired}
+            />
+          )
         }
         error={!!(touched && error)}
         helperText={touched && error}
@@ -114,9 +112,9 @@ TextInputPrice.propTypes = {
 }
 
 TextInputPrice.defaultProps = {
-  onBlur: () => { },
-  onChange: () => { },
-  onFocus: () => { },
+  onBlur: () => {},
+  onChange: () => {},
+  onFocus: () => {},
   options: {},
   type: 'text',
 }
