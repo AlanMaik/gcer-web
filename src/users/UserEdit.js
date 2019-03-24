@@ -37,13 +37,6 @@ const UserEdit = ({ classes, ...props }) => (
         type="email"
         formClassName={classes.inlineBlock}
       />
-      <TextInput
-        required
-        source="password"
-        label="Senha"
-        type="password"
-        formClassName={classes.inlineBlock}
-      />
       <TextInputPhone
         required
         source="phone"
